@@ -1,3 +1,4 @@
+
 # BookSales Admin — React JS Lanjutan
 
 Aplikasi panel admin toko buku berbasis **React JS** yang memuat fitur **registrasi pengguna**, serta **CRUD (Create, Read, Update, Delete) untuk data Genre dan Author**. Antarmuka dibuat responsif, bersih, dan mudah digunakan.
@@ -202,3 +203,7 @@ bookstore-admin/
 - Proyek ini dikerjakan secara mandiri untuk tugas **React JS Lanjutan**.
 - Mode demo (mock API) disediakan agar penilai dapat mencoba aplikasi tanpa perlu menyiapkan backend.
 - Seluruh kode ditulis dengan struktur folder yang terpisah antara `api`, `services`, `components`, `pages`, dan `utils` supaya mudah dibaca dan dikembangkan.
+=======
+# booksales-react
+belajar react
+>>>>>>> 2d535f91b81a60df4af857698b9c680d6213bff7
