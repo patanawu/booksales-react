@@ -1,15 +1,6 @@
 import axios from 'axios'
 import { mockRequest } from './mockApi'
 
-/**
- * Satu pintu untuk seluruh request HTTP.
- *
- * - VITE_USE_MOCK=true  -> request diarahkan ke mock API (localStorage)
- * - VITE_USE_MOCK=false -> request dikirim ke backend sungguhan via Axios
- *
- * Semua service memakai objek `api` ini, sehingga perpindahan dari mode demo
- * ke backend asli cukup mengubah file .env tanpa menyentuh komponen.
- */
 
 export const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false'
 export const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api'

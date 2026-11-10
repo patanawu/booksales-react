@@ -1,21 +1,39 @@
+
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 /**
- * Membatasi akses halaman admin.
- * - Belum login / token kedaluwarsa -> dialihkan ke /login
- * - Login tetapi role bukan admin -> dialihkan ke /login
+ * Protected Route untuk membatasi akses berdasarkan role.
+ *
+ * - Belum login -> diarahkan ke /login
+ * - Role tidak sesuai -> diarahkan ke halaman sesuai role
+ * - Role sesuai -> halaman dapat diakses
  */
-export default function ProtectedRoute() {
+export default function ProtectedRoute({
+  allowedRoles = ['user', 'customer', 'admin'],
+}) {
   const { isValid, user } = useAuth()
   const location = useLocation()
 
+  // Memeriksa status login
   if (!isValid) {
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />
+    return (
+      <Navigate
+        to="/login"
+        replace
+        state={{ from: location.pathname }}
+      />
+    )
   }
 
-  if (user?.role !== 'admin') {
-    return <Navigate to="/login" replace />
+  // Memeriksa hak akses berdasarkan role
+  if (!allowedRoles.includes(user?.role)) {
+    return (
+      <Navigate
+        to={user?.role === 'admin' ? '/admin' : '/profile'}
+        replace
+      />
+    )
   }
 
   return <Outlet />

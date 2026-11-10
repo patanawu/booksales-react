@@ -296,11 +296,11 @@ export default function Register() {
       </p>
 
       {USE_MOCK && (
-        <p className="mt-6 rounded-xl bg-slate-50 p-3 text-center text-[11px] leading-relaxed text-slate-500 ring-1 ring-slate-100">
-          Mode demo: akun baru tersimpan di localStorage browser dan hanya bisa mengakses halaman
-          publik. Gunakan akun admin untuk masuk ke panel.
-        </p>
-      )}
+  <p className="mt-6 rounded-xl bg-slate-50 p-3 text-center text-[11px] leading-relaxed text-slate-500 ring-1 ring-slate-100">
+    Mode demo: akun baru tersimpan di localStorage browser dan otomatis
+    mendapatkan role user. Akun admin memiliki akses khusus ke panel admin.
+  </p>
+)}
     </AuthLayout>
   )
 }

@@ -1,13 +1,3 @@
-/**
- * Mock API — simulasi backend Book Sales.
- *
- * Dipakai ketika `VITE_USE_MOCK=true` (default) supaya aplikasi bisa langsung
- * dijalankan tanpa perlu menyalakan backend Laravel/Express. Seluruh data
- * disimpan di localStorage sehingga tetap ada setelah halaman di-refresh.
- *
- * Bentuk respons dan error dibuat mirip Axios, jadi seluruh service +
- * halaman tidak perlu diubah ketika nanti beralih ke API sungguhan.
- */
 
 const KEYS = {
   genres: 'booksales.mock.genres',
@@ -223,9 +213,7 @@ export async function mockRequest({ method = 'get', url = '/', data = null }) {
     if (!user || user.password !== password) {
       throw new ApiError(401, 'Email atau password Anda salah.')
     }
-    if (user.role !== 'admin') {
-      throw new ApiError(403, 'Akun ini tidak memiliki akses ke halaman admin.')
-    }
+   
 
     return {
       status: 200,
